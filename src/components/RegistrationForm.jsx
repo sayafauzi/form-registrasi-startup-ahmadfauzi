@@ -6,6 +6,7 @@ import { validatePassword } from '../utils/validations';
 import { FormInput } from './FormInput';
 import { FormSelect } from './FormSelect';
 import { FormCheckbox } from './FormCheckbox';
+import { FormRadioCards } from './FormRadioCards';
 
 export const RegistrationForm = () => {
   const {
@@ -20,7 +21,8 @@ export const RegistrationForm = () => {
       password: "password@123",
       age: 21,
       ticketType: "Student", 
-      websiteUrl: "", 
+      websiteUrl: "https://github.com/sayafauzi",
+      bootcampTrack: "Full-Stack Web", 
       agreeToTerms: false
     }
   });
@@ -70,14 +72,14 @@ export const RegistrationForm = () => {
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 relative mt-4">
         <FormInput 
           label="Nama Lengkap" 
-          placeholder="John Doe"
+          placeholder="Isi Nama Anda, Contoh: Ahmad Fauzi"
           registration={register("fullName", { required: "Nama lengkap wajib diisi" })}
           error={errors.fullName}
         />
 
         <FormInput 
           label="Username" 
-          placeholder="johndoe_dev"
+          placeholder="Isi Username Anda, Contoh: ahmadfauzi_dev"
           registration={register("username", { 
             required: "Username wajib diisi",
             minLength: { value: 6, message: "Username minimal 6 karakter" },
@@ -101,7 +103,7 @@ export const RegistrationForm = () => {
           <FormInput 
             label="Password" 
             type="password"
-            placeholder="••••••••"
+            placeholder="Isi Password Anda"
             registration={register("password", { 
               required: "Password wajib diisi",
               validate: validatePassword
@@ -114,7 +116,7 @@ export const RegistrationForm = () => {
           <FormInput 
             label="Usia" 
             type="number"
-            placeholder="18"
+            placeholder="Isi umur anda"
             registration={register("age", { 
               required: "Umur wajib diisi",
               min: { value: 18, message: "Peserta harus berusia 18-100 tahun" },
@@ -144,6 +146,12 @@ export const RegistrationForm = () => {
             pattern: { value: /^https?:\/\/[^\s$.?#].[^\s]*$/, message: "Format URL tidak valid" }
           })}
           error={errors.websiteUrl}
+        />
+
+        <FormRadioCards 
+          label="Jalur Fokus (Learning Track)"
+          registration={register("bootcampTrack", { required: "Silakan pilih satu jalur fokus bootcamp" })}
+          error={errors.bootcampTrack}
         />
 
         <FormCheckbox 

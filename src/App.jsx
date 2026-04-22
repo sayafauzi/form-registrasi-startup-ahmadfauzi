@@ -3,7 +3,7 @@ import { RegistrationForm } from './components/RegistrationForm';
 export default function App() {
   return (
     // Background Dark Theme (Modern Blue Gradient)
-    <div className="min-h-screen py-10 px-4 flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 font-sans selection:bg-blue-200">
+    <div className="min-h-screen py-10 px-4 flex items-center justify-center font-sans">
       
       {/* Glass/Card Container dengan sudut besar khas UI Modern */}
       <div className="w-full max-w-3xl bg-white rounded-[2rem] shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] overflow-hidden border border-blue-500/20">
